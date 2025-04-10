@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h2>📝 All Posts</h2>
+{% for post in posts %}
+    <div class="card mb-3 p-3">
+        <div class="card-body">
+            <h5><a href="{% url 'post_detail' post.id %}" class="text-decoration-none text-info">{{ post.title }}</a></h5>
+            <p class="author-text">👨‍💻 by {{ post.author }}</p>
+            <p style="color: #ffffff;">📅 Created: {{ post.created_at|date:"F j, Y, g:i a" }}</p>
+            <p style="color: #ffffff;">🛠️ Updated: {{ post.updated_at|date:"F j, Y, g:i a" }}</p>
+        </div>
+    </div>
+{% empty %}
+    <p>No posts yet.</p>
+{% endfor %}
+{% endblock %}

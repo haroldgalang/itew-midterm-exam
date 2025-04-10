@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h2>Register</h2>
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" class="form-control mb-2" placeholder="Username" required>
+    <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+    <button class="btn btn-dark">Register</button>
+</form>
+{% if error %}
+<p class="text-danger mt-2">{{ error }}</p>
+{% endif %}
+{% endblock %}
